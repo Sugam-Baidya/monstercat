@@ -68,11 +68,11 @@ const Hero = () => {
   return (
     <Carousel
       className="h-screen relative"
-      // plugins={[Autoplay({ delay: autoplayDelay, stopOnInteraction: false })]}
-      // setApi={(api) => {
-      //   if (!api) return;
-      //   api.on("select", () => setActiveIndex(api.selectedScrollSnap()));
-      // }}
+      plugins={[Autoplay({ delay: autoplayDelay, stopOnInteraction: false })]}
+      setApi={(api) => {
+        if (!api) return;
+        api.on("select", () => setActiveIndex(api.selectedScrollSnap()));
+      }}
     >
       <Navbar className="xl:mr-23" />
       <a href="#">
