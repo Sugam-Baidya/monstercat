@@ -34,22 +34,22 @@ const SongReleaseCard: React.FC<SongReleaseProps> = ({
         </p>
         <div className="uppercase xl:w-max xl:absolute xl:top-[50%] xl:-translate-y-[60%] xl:left-[52%] xl:-translate-x-[25%]">
           <h2
-            className="text-5xl font-extrabold tracking-tighter text-transparent [-webkit-text-stroke:1px_rgb(255_255_255/80%)]
+            className="text-5xl font-extrabold tracking-wider text-transparent [-webkit-text-stroke:1px_rgb(255_255_255/80%)]
                
-               bg-clip-text xl:max-w-[10ch] xl:wrap-break-words"
+             xl:max-w-[10ch] xl:wrap-break-words truncate"
           >
             {title}
           </h2>
-          <h3 className="text-5xl font-semibold mt-1">{artist}</h3>
+          <h3 className="text-5xl font-bold mt-1 xl:max-w-[12ch] xl:wrap-break-words truncate">{artist}</h3>
 
           <div className="flex flex-col xl:flex-row gap-4 mt-4 ">
             <button
-              className={`bg-[${color}] text-white px-4 py-2 rounded font-semibold hover:bg-white transition hover:text-black uppercase cursor-pointer`}
+              className={`bg-[#${color}] text-white px-4 py-2 rounded font-semibold hover:bg-white transition hover:text-black uppercase cursor-pointer`}
             >
               View Release
             </button>
 
-            <button className="border border-white px-4 py-2 rounded font-semibold hover:bg-white hover:text-black transition uppercase cursor-pointer">
+            <button className="border border-white px-4 py-2 rounded font-semibold hover:bg-white hover:text-black transition uppercase cursor-pointer ">
               Listen on Player
             </button>
           </div>

@@ -21,11 +21,11 @@ const Hero = () => {
   const songs = [
     {
       id: 1,
-      title: "What You Know You Know You...",
+      title: "What You Know You Know You",
       artist: "Infected Mushroom",
       type: "Uncaged",
       released: "November 21, 2025",
-      color: "#9A8FF6",
+      color: "9A8FF6",
     },
     {
       id: 2,
@@ -33,7 +33,7 @@ const Hero = () => {
       artist: "Trivecta feat. Vanru",
       type: "Instinct",
       released: "November 20, 2025",
-      color: "#50A584",
+      color: "50A584",
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const Hero = () => {
       artist: "Oracle",
       type: "Silk",
       released: "November 18, 2025",
-      color: "#F68E2F",
+      color: "F68E2F",
     },
     {
       id: 4,
@@ -49,7 +49,7 @@ const Hero = () => {
       artist: "Rameses B & Veela",
       type: "Uncaged",
       released: "November 24, 2025",
-      color: "#F1D384",
+      color: "F1D384",
     },
   ];
 
@@ -68,19 +68,19 @@ const Hero = () => {
   return (
     <Carousel
       className="h-screen relative"
-        plugins={[Autoplay({ delay: autoplayDelay, stopOnInteraction: false })]}
-        setApi={(api) => {
-          if (!api) return;
-          api.on("select", () => setActiveIndex(api.selectedScrollSnap()));
-        }}
+      // plugins={[Autoplay({ delay: autoplayDelay, stopOnInteraction: false })]}
+      // setApi={(api) => {
+      //   if (!api) return;
+      //   api.on("select", () => setActiveIndex(api.selectedScrollSnap()));
+      // }}
     >
-      <Navbar className="xl:mr-23"/>
+      <Navbar className="xl:mr-23" />
       <a href="#">
-      <img
-        src="public/favicon.ico"
-        className="absolute top-8 left-30 z-20 hidden xl:block h-10 w-10"
-        alt=""
-      />
+        <img
+          src="/favicon.ico"
+          className="absolute top-8 left-30 z-20 hidden xl:block h-10 w-10"
+          alt=""
+        />
       </a>
       {/* Progress Bars */}
       <div className="absolute top-30 md:top-20 left-1/2 -translate-x-1/2 z-10 flex gap-2 w-[75vw]">
@@ -112,16 +112,23 @@ const Hero = () => {
       </div>
 
       <CarouselContent>
-        {songs.map((song) => (
+        {songs.map((song, index) => (
           <CarouselItem key={song.id} className="pl-0">
             <Card className={`relative rounded-none `}>
-              <div
-                className={`bg-[url('/${song.id}.png')] bg-cover bg-center absolute inset-0 blur-xs`}
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent" />
+              <div className="absolute inset-0">
+                {/* Background image that ALWAYS fills the entire div */}
+                <img
+                  src={`/${index + 1}.png`}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-cover object-center blur-xs"
+                />
+
+                {/* Gradient overlay on top */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+              </div>
               <CardContent className="h-[95vh] flex justify-center items-center">
                 <motion.div
-                  key={song.id} 
+                  key={song.id}
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}

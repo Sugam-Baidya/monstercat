@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="monument">
       <Hero />
-      <div className="h-[100vh]"></div>
+      <div className="h-screen"></div>
     </div>
   );
 }
